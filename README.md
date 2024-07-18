@@ -22,36 +22,36 @@ python pip install -r requirements.txt
 
  The objective function Z seeks to find routes between N destinations and M origins that minimize the total cost for the carriers, so that \[c_{ij}\] is the distance from city i to city j
 
-\[ \min Z = \sum_{i=1}^{N+M} \sum_{j=1}^{N+M} c_{ij} x_{ij} \]
+$ \min Z = \sum_{i=1}^{N+M} \sum_{j=1}^{N+M} c_{ij} x_{ij}$
 
 ### Subject to
 
 1. Each destination city is served only once, and that all cities must be visited:
-\[ \sum_{i=1}^{N+M} x_{ij} = 1 \quad \text{for} \quad j = 1, 2, ..., N \] 
+$\sum_{i=1}^{N+M} x_{ij} = 1 \quad \text{for} \quad j = 1, 2, ..., N $ 
 
-\[ \sum_{j=1}^{N+M} x_{ij} = 1 \quad \text{for} \quad i = 1, 2, ..., N \]
+$\sum_{j=1}^{N+M} x_{ij} = 1 \quad \text{for} \quad i = 1, 2, ..., N $
 
 2. All vehicles are used for transportation:
-\[ \sum_{i=N+1}^{N+M} \sum_{j=1}^{N+M} x_{ij} = V \]
-\[ \sum_{j=N+1}^{N+M} \sum_{i=1}^{N+M} x_{ij} = V \]
+$ \sum_{i=N+1}^{N+M} \sum_{j=1}^{N+M} x_{ij} = V $
+$ \sum_{j=N+1}^{N+M} \sum_{i=1}^{N+M} x_{ij} = V $
 
 3. Binary variable constraint:
-\[ x_{ij} = 0 \text{ or } 1 \quad \text{for all} \quad i, j \]
+$ x_{ij} = 0 \text{ or } 1 \quad \text{for all} \quad i, j $
 
 4. Vehicles cannot travel directly between depots:
-\[ x_{ij} = 0 \quad \text{for} \quad i = N + 1, N + 2, ..., N + M \quad \text{and} \quad j = N + 1, N + 2, ..., N + M \]
+$ x_{ij} = 0 \quad \text{for} \quad i = N + 1, N + 2, ..., N + M \quad \text{and} \quad j = N + 1, N + 2, ..., N + M $
 
 5. The following constraints play a dual role in the MDVRP model: they are capacity constraints and subroute elimination constraints2. They belong to a class of Miller-Tucker-Zemlin (MTZ) arc product flow constraints, which appear in polynomial quantity in the model, which is an advantage since they differ from typical exponentially growing subroute elimination constraints in relation to the input data. However, as a disadvantage, they produce a weak linear relaxation in the resolution of the relaxed model during the branch-and-bound process. The variables 𝑢 and 𝑦 must be non-negative, given a value at each vertex except the depots, not allowing disconnected sub-routes to occur in the optimal solution, since they define a certain order in which the flow of cargo in the vehicle must traverse the arcs along the customer visits
 
-\[ u_i - u_j + Px_{ij} \leq P - Q_i \quad \text{for} \quad 1 \leq i \neq j \leq N \]
+$ u_i - u_j + Px_{ij} \leq P - Q_i \quad \text{for} \quad 1 \leq i \neq j \leq N $
 
-\[ y_i - y_j + Lx_{ij} \leq L - 1 \quad \text{for} \quad 1 \leq i \neq j \leq N \]
+$ y_i - y_j + Lx_{ij} \leq L - 1 \quad \text{for} \quad 1 \leq i \neq j \leq N $
 
 6. Moreover, if it is established, for example, that a total of 2 vehicles must be used, the model might allocate no vehicles to one depot and 2 vehicles to the other. Therefore, to conduct computational experiments, constraints were considered that do not allow such a situation to occur, defining a fixed number of vehicles for each depot:
 
-\[ \sum_{j=1}^{N+M} x_{ij} = V_i \quad \text{for} \quad i = N + 1, N + 2, ..., N + M \]
+$ \sum_{j=1}^{N+M} x_{ij} = V_i \quad \text{for} \quad i = N + 1, N + 2, ..., N + M $
 
-\[ \sum_{i=1}^{N+M} x_{ij} = V_j \quad \text{for} \quad j = N + 1, N + 2, ..., N + M \]
+$ \sum_{i=1}^{N+M} x_{ij} = V_j \quad \text{for} \quad j = N + 1, N + 2, ..., N + M $
 
 
 ## Analysis
