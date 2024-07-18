@@ -49,9 +49,12 @@ $ y_i - y_j + Lx_{ij} \leq L - 1 \quad \text{for} \quad 1 \leq i \neq j \leq N $
 
 6. Moreover, if it is established, for example, that a total of 2 vehicles must be used, the model might allocate no vehicles to one depot and 2 vehicles to the other. Therefore, to conduct computational experiments, constraints were considered that do not allow such a situation to occur, defining a fixed number of vehicles for each depot:
 
-$ \sum_{j=1}^{N+M} x_{ij} = V_i \quad \text{for} \quad i = N + 1, N + 2, ..., N + M $
+<img src="https://latex.codecogs.com/svg.latex?\sum_{j=1}^{N+M} x_{ij} = V_i \quad \text{for} \quad i = N + 1, N + 2, ..., N + M">
+</div>
 
-$ \sum_{i=1}^{N+M} x_{ij} = V_j \quad \text{for} \quad j = N + 1, N + 2, ..., N + M $
+<div align="center"> 
+    <img src="https://latex.codecogs.com/svg.latex?\sum_{i=1}^{N+M} x_{ij} = V_j \quad \text{for} \quad j = N + 1, N + 2, ..., N + M">
+</div>
 
 
 ## Analysis
