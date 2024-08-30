@@ -129,6 +129,9 @@ The deposits are highlighted in red
 |:---------------------------------------------:|
 | ![Solution5](Assets/4_vehicles_fix.png)       | 
 
+The  implementation  of  the  code  was  tested  by  varying  the  number  of  vehicles,  the  maximum  number  of  points  that  each  vehicle  can  visit,  as  well  as  some  aspects  of  the  mathematical  modeling,  but  keeping  the  capacity  of  the  vehicles  and  the  demand  of  the destinations  fixed.  Thus,  different  optimal  solutions  were  found  for  the  problem  presented.  
+
+Among these solutions, it was possible to see that the solution shown in Figure 4 obtained the shortest  total  distance  traveled,  with  the  use  of  only  2  vehicles  and  no  restrictions  on  the  maximum number 12 of us that each truck could visit
 
 **sensitivity analysis**
 
